@@ -1,253 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Divya Shree D G | Data Analyst Portfolio</title>
 
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- If you DO have these files, you can uncomment and use them -->
+  <!-- <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon"> -->
+  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Minimal styling (so it looks fine even without style.css) */
+    body { font-family: Poppins, Arial, sans-serif; margin: 0; padding: 0; }
+    main { padding: 16px; max-width: 980px; margin: 0 auto; }
+
+    .top { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 780px) { .top { grid-template-columns: 320px 1fr; } }
+
+    .card { border: 1px solid #eee; border-radius: 14px; padding: 16px; }
+    .sidebar-info { display: flex; gap: 14px; align-items: center; }
+
+    .avatar-box img { width: 84px; height: 84px; object-fit: cover; border-radius: 16px; border: 1px solid #eee; }
+
+    .name { margin: 0; font-size: 22px; }
+    .title { margin: 6px 0 0 0; color: #555; font-weight: 500; }
+
+    .contacts-list { list-style: none; padding: 0; margin: 14px 0 0 0; }
+    .contacts-list li { margin: 8px 0; color: #333; }
+    .contacts-list a { color: inherit; text-decoration: underline; }
+
+    .navbar-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+    .navbar-link {
+      padding: 10px 14px; border: 1px solid #ddd; background: #fff;
+      cursor: pointer; border-radius: 10px; font-weight: 500;
+    }
+    .navbar-link.active { background: #111; color: #fff; border-color: #111; }
+
+    article { display: none; margin-top: 16px; }
+    article.active { display: block; }
+
+    h2 { margin: 0 0 10px 0; }
+    h3 { margin: 18px 0 8px 0; }
+
+    .project-list { list-style: none; padding: 0; margin: 0; }
+    .project-item { padding: 12px; border: 1px solid #eee; border-radius: 12px; margin-bottom: 10px; }
+    .project-title { margin: 0 0 6px 0; font-size: 16px; }
+    .project-category { margin: 0; color: #555; }
+  </style>
 </head>
 
 <body>
-
 <main>
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" data-sidebar>
+  <div class="top">
 
-    <div class="sidebar-info">
-      <figure class="avatar-box">
-        <img src="./assets/images/my-avatar.png" alt="Divya Shree D G" width="80">
-      </figure>
+    <!-- SIDEBAR -->
+    <aside class="card">
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <!-- Put Divya.jpeg in the SAME folder as index.html -->
+          <img src="./Divya.jpeg" alt="Divya Shree D G">
+        </figure>
 
-      <div class="info-content">
-        <h1 class="name" title="Divya Shree D G">Divya Shree D G</h1>
-        <p class="title">Data Analyst | AI & ML</p>
+        <div class="info-content">
+          <h1 class="name" title="Divya Shree D G">Divya Shree D G</h1>
+          <p class="title">Data Analyst | AI & ML</p>
+        </div>
       </div>
 
-      <button class="info_more-btn" data-sidebar-btn>
-        <span>Show Contacts</span>
-        <ion-icon name="chevron-down"></ion-icon>
-      </button>
-    </div>
-
-    <div class="sidebar-info_more">
-      <div class="separator"></div>
-
       <ul class="contacts-list">
-
-        <li class="contact-item">
-          <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-          <div class="contact-info">
-            <p class="contact-title">Email</p>
-            <a href="mailto:divyashreedg03@gmail.com" class="contact-link">
-              divyashreedg03@gmail.com
-            </a>
-          </div>
-        </li>
-
-        <li class="contact-item">
-          <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
-          <div class="contact-info">
-            <p class="contact-title">Phone</p>
-            <a href="tel:+917899843367" class="contact-link">
-              +91 7899843367
-            </a>
-          </div>
-        </li>
-
-        <li class="contact-item">
-          <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
-          <div class="contact-info">
-            <p class="contact-title">Location</p>
-            <address>Bangalore, Karnataka, India</address>
-          </div>
-        </li>
-
+        <li><strong>Email:</strong> <a href="mailto:divyashreedg03@gmail.com">divyashreedg03@gmail.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+917899843367">+91 7899843367</a></li>
+        <li><strong>Location:</strong> Bangalore, Karnataka, India</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/Divya-tom" target="_blank">github.com/Divya-tom</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/divyashreedg" target="_blank">linkedin.com/in/divyashreedg</a></li>
       </ul>
+    </aside>
 
-      <div class="separator"></div>
+    <!-- MAIN -->
+    <section class="card">
 
-      <ul class="social-list">
-        <li class="social-item">
-          <a href="https://github.com/Divya-tom" target="_blank" class="social-link">
-            <ion-icon name="logo-github"></ion-icon>
-          </a>
-        </li>
-        <li class="social-item">
-          <a href="https://linkedin.com/in/divyashreedg" target="_blank" class="social-link">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </li>
-      </ul>
-
-    </div>
-  </aside>
-
-  <!-- ================= MAIN CONTENT ================= -->
-  <div class="main-content">
-
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar">
-      <ul class="navbar-list">
-        <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
-        <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
-        <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
-        <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
-      </ul>
-    </nav>
-
-    <!-- ===== ABOUT ===== -->
-    <article class="about active" data-page="about">
-      <header><h2 class="h2 article-title">About Me</h2></header>
-
-      <section class="about-text">
-        <p>
-          Hi, I’m <strong>Divya Shree D G</strong>, a Data Analyst and AI & ML undergraduate with hands-on
-          experience in Python, data analysis, EDA, Power BI, and machine learning.
-        </p>
-        <p>
-          I enjoy transforming raw data into meaningful insights and dashboards.
-          I’m actively seeking opportunities where I can apply analytics skills to
-          solve real-world business problems.
-        </p>
-      </section>
-    </article>
-
-    <!-- ===== RESUME ===== -->
-    <article class="resume" data-page="resume">
-      <header><h2 class="h2 article-title">Resume</h2></header>
-
-      <!-- Education -->
-      <section class="timeline">
-        <div class="title-wrapper">
-          <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-          <h3 class="h3">Education</h3>
-        </div>
-
-        <ol class="timeline-list">
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">B.E. – AI & ML</h4>
-            <span>2021 – 2025</span>
-            <p class="timeline-text">
-              Vivekananda Institute of Technology, Bangalore<br>
-              CGPA: 7.28
-            </p>
-          </li>
-
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">Pre-University</h4>
-            <span>2019 – 2021</span>
-            <p class="timeline-text">82.12% – Vijaya Composite PU College</p>
-          </li>
-
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">SSLC</h4>
-            <span>2019</span>
-            <p class="timeline-text">88.96% – Manasa Vidya Kendra</p>
-          </li>
-        </ol>
-      </section>
-
-      <!-- Experience -->
-      <section class="timeline">
-        <div class="title-wrapper">
-          <div class="icon-box"><ion-icon name="briefcase-outline"></ion-icon></div>
-          <h3 class="h3">Experience / Internships</h3>
-        </div>
-
-        <ol class="timeline-list">
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">Machine Learning Intern – Tech Fortune Technologies</h4>
-            <span>Oct 2023 – Nov 2023</span>
-            <p class="timeline-text">Worked on ML models, preprocessing, and feature engineering.</p>
-          </li>
-
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">Data Science Intern – Smart Learn Ed.Tech</h4>
-            <span>Jul 2024 – Aug 2024</span>
-            <p class="timeline-text">Performed data analysis, EDA, and reporting.</p>
-          </li>
-
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">AI/ML Engineer Trainee – Rooman Technologies</h4>
-            <span>Sep 2024 – May 2025</span>
-            <p class="timeline-text">Hands-on training in AI/ML and deployment basics.</p>
-          </li>
-
-          <li class="timeline-item">
-            <h4 class="h4 timeline-item-title">Data Science Intern – Dr. Reddy’s Foundation</h4>
-            <span>Jun 2025 – Sep 2025</span>
-            <p class="timeline-text">Worked on analytics and predictive modeling.</p>
-          </li>
-        </ol>
-      </section>
-
-      <!-- Skills -->
-      <section class="skill">
-        <h3 class="h3 skills-title">My Skills</h3>
-
-        <ul class="skills-list content-card">
-          <li class="skills-item"><h5 class="h5">Python</h5><data value="80">80%</data></li>
-          <li class="skills-item"><h5 class="h5">Data Analysis & EDA</h5><data value="80">80%</data></li>
-          <li class="skills-item"><h5 class="h5">Machine Learning</h5><data value="75">75%</data></li>
-          <li class="skills-item"><h5 class="h5">Power BI</h5><data value="70">70%</data></li>
-          <li class="skills-item"><h5 class="h5">SQL</h5><data value="70">70%</data></li>
-          <li class="skills-item"><h5 class="h5">AWS</h5><data value="60">60%</data></li>
-          <li class="skills-item"><h5 class="h5">Tableau</h5><data value="60">60%</data></li>
-          <li class="skills-item"><h5 class="h5">HTML & CSS</h5><data value="55">55%</data></li>
+      <!-- NAV -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li><button class="navbar-link active" data-nav="about">About</button></li>
+          <li><button class="navbar-link" data-nav="resume">Resume</button></li>
+          <li><button class="navbar-link" data-nav="portfolio">Portfolio</button></li>
+          <li><button class="navbar-link" data-nav="contact">Contact</button></li>
         </ul>
-      </section>
-    </article>
+      </nav>
 
-    <!-- ===== PORTFOLIO ===== -->
-    <article class="portfolio" data-page="portfolio">
-      <header><h2 class="h2 article-title">Projects</h2></header>
+      <!-- ABOUT -->
+      <article class="active" data-page="about">
+        <header><h2>About Me</h2></header>
+        <p>
+          Hi, I’m <strong>Divya Shree D G</strong>, a Data Analyst and AI & ML undergraduate with hands-on experience in
+          Python, data analysis, EDA, Power BI, and machine learning.
+        </p>
+        <p>
+          I enjoy transforming raw data into meaningful insights and dashboards. I’m actively seeking opportunities
+          where I can apply analytics skills to solve real-world business problems.
+        </p>
+      </article>
 
-      <ul class="project-list">
-        <li class="project-item active">
-          <h3 class="project-title">Food Sales Data Analysis & Prediction</h3>
-          <p class="project-category">Machine Learning</p>
-        </li>
+      <!-- RESUME -->
+      <article data-page="resume">
+        <header><h2>Resume</h2></header>
 
-        <li class="project-item active">
-          <h3 class="project-title">Real-Time Attendance using Face Recognition</h3>
-          <p class="project-category">Computer Vision</p>
-        </li>
+        <h3>Education</h3>
+        <ul>
+          <li><strong>B.E. – AI & ML</strong> (2021–2025) — Vivekananda Institute of Technology, Bangalore — <strong>CGPA:</strong> 7.28</li>
+          <li><strong>Pre-University</strong> (2019–2021) — Vijaya Composite PU College — <strong>82.12%</strong></li>
+          <li><strong>SSLC</strong> (2019) — Manasa Vidya Kendra — <strong>88.96%</strong></li>
+        </ul>
 
-        <li class="project-item active">
-          <h3 class="project-title">Global Superstore Dashboard</h3>
-          <p class="project-category">Power BI</p>
-        </li>
+        <h3>Experience / Internships</h3>
+        <ul>
+          <li><strong>Tech Fortune Technologies</strong> — Machine Learning Intern (Oct 2023 – Nov 2023)</li>
+          <li><strong>Smart Learn Ed.Tech</strong> — Data Science & Data Analysis Intern (Jul 2024 – Aug 2024)</li>
+          <li><strong>Rooman Technologies (PMKVY)</strong> — AI/ML Engineer Trainee (Sep 2024 – May 2025)</li>
+          <li><strong>Dr. Reddy’s Foundation</strong> — Data Science Intern (Jun 2025 – Sep 2025)</li>
+        </ul>
 
-        <li class="project-item active">
-          <h3 class="project-title">AWS Deployment Automation</h3>
-          <p class="project-category">Cloud</p>
-        </li>
-      </ul>
-    </article>
+        <h3>Skills</h3>
+        <ul>
+          <li>Python (80%), Data Analysis & EDA (80%), Machine Learning (75%)</li>
+          <li>Power BI (70%), SQL (70%), Tableau (60%)</li>
+          <li>AWS (60%), HTML & CSS (55%)</li>
+        </ul>
+      </article>
 
-    <!-- ===== CONTACT ===== -->
-    <article class="contact" data-page="contact">
-      <header><h2 class="h2 article-title">Contact</h2></header>
-      <p>Email: divyashreedg03@gmail.com</p>
-      <p>Phone: +91 7899843367</p>
-      <p>Location: Bangalore, India</p>
-    </article>
+      <!-- PORTFOLIO -->
+      <article data-page="portfolio">
+        <header><h2>Projects</h2></header>
 
+        <ul class="project-list">
+          <li class="project-item">
+            <h3 class="project-title">Food Sales Data Analysis & Prediction</h3>
+            <p class="project-category">Machine Learning • Python • Pandas</p>
+          </li>
+
+          <li class="project-item">
+            <h3 class="project-title">Real-Time Attendance using Face Recognition</h3>
+            <p class="project-category">Computer Vision • OpenCV • KNN</p>
+          </li>
+
+          <li class="project-item">
+            <h3 class="project-title">Global Superstore Dashboard</h3>
+            <p class="project-category">Power BI • KPI Dashboard</p>
+          </li>
+
+          <li class="project-item">
+            <h3 class="project-title">AWS Deployment Automation</h3>
+            <p class="project-category">AWS • Deployment</p>
+          </li>
+        </ul>
+      </article>
+
+      <!-- CONTACT -->
+      <article data-page="contact">
+        <header><h2>Contact</h2></header>
+        <p><strong>Email:</strong> <a href="mailto:divyashreedg03@gmail.com">divyashreedg03@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+917899843367">+91 7899843367</a></p>
+        <p><strong>Location:</strong> Bangalore, India</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/Divya-tom" target="_blank">github.com/Divya-tom</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/divyashreedg" target="_blank">linkedin.com/in/divyashreedg</a></p>
+      </article>
+
+    </section>
   </div>
+
 </main>
 
-<script src="./assets/js/script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+  // Tab navigation logic (fixes Resume not opening)
+  const navButtons = document.querySelectorAll("[data-nav]");
+  const pages = document.querySelectorAll("[data-page]");
+
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-nav");
+
+      navButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      pages.forEach(p => p.classList.remove("active"));
+      const page = document.querySelector(`[data-page="${target}"]`);
+      if (page) page.classList.add("active");
+    });
+  });
+</script>
 
 </body>
 </html>
