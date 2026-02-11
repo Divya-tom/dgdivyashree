@@ -7,195 +7,636 @@
 
   <title>Divya Shree D G | Data Analyst Portfolio</title>
 
-  <!-- If you DO have these files, you can uncomment and use them -->
-  <!-- <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon"> -->
-  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Minimal styling (so it looks fine even without style.css) */
-    body { font-family: Poppins, Arial, sans-serif; margin: 0; padding: 0; }
-    main { padding: 16px; max-width: 980px; margin: 0 auto; }
-
-    .top { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 780px) { .top { grid-template-columns: 320px 1fr; } }
-
-    .card { border: 1px solid #eee; border-radius: 14px; padding: 16px; }
-    .sidebar-info { display: flex; gap: 14px; align-items: center; }
-
-    .avatar-box img { width: 84px; height: 84px; object-fit: cover; border-radius: 16px; border: 1px solid #eee; }
-
-    .name { margin: 0; font-size: 22px; }
-    .title { margin: 6px 0 0 0; color: #555; font-weight: 500; }
-
-    .contacts-list { list-style: none; padding: 0; margin: 14px 0 0 0; }
-    .contacts-list li { margin: 8px 0; color: #333; }
-    .contacts-list a { color: inherit; text-decoration: underline; }
-
-    .navbar-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
-    .navbar-link {
-      padding: 10px 14px; border: 1px solid #ddd; background: #fff;
-      cursor: pointer; border-radius: 10px; font-weight: 500;
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0a1b2e;
+      --card: rgba(255,255,255,0.08);
+      --card2: rgba(255,255,255,0.10);
+      --border: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --muted2: rgba(255,255,255,0.55);
+      --accent: #7c3aed;  /* violet */
+      --accent2:#22c55e;  /* green */
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 18px;
     }
-    .navbar-link.active { background: #111; color: #fff; border-color: #111; }
 
-    article { display: none; margin-top: 16px; }
-    article.active { display: block; }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:Poppins, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(124,58,237,0.25), transparent 55%),
+        radial-gradient(1200px 800px at 90% 20%, rgba(34,197,94,0.18), transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+    }
 
-    h2 { margin: 0 0 10px 0; }
-    h3 { margin: 18px 0 8px 0; }
+    .container{
+      max-width:1080px;
+      margin:0 auto;
+      padding:28px 16px;
+    }
 
-    .project-list { list-style: none; padding: 0; margin: 0; }
-    .project-item { padding: 12px; border: 1px solid #eee; border-radius: 12px; margin-bottom: 10px; }
-    .project-title { margin: 0 0 6px 0; font-size: 16px; }
-    .project-category { margin: 0; color: #555; }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 4px rgba(124,58,237,0.15);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+    }
+    @media(min-width:880px){
+      .grid{ grid-template-columns: 360px 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.06));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow:hidden;
+    }
+
+    .sidebar{
+      padding:18px;
+    }
+
+    .profile{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .avatar{
+      width:86px;height:86px;border-radius:20px;
+      border:1px solid rgba(255,255,255,0.20);
+      overflow:hidden;
+      position:relative;
+      flex:0 0 auto;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+    .avatar::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:linear-gradient(135deg, rgba(124,58,237,0.85), rgba(34,197,94,0.75));
+      filter: blur(12px);
+      opacity:0.35;
+      z-index:0;
+    }
+    .avatar img{
+      width:100%;height:100%;
+      object-fit:cover;
+      position:relative;
+      z-index:1;
+    }
+
+    .name{
+      margin:0;
+      font-size:22px;
+      letter-spacing:0.2px;
+      line-height:1.1;
+    }
+    .role{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-weight:500;
+      font-size:13.5px;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      color:var(--muted);
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,0.12);
+      margin:16px 0;
+    }
+
+    .contact{
+      display:grid;
+      gap:10px;
+    }
+    .item{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .item:hover{
+      transform: translateY(-1px);
+      background:rgba(255,255,255,0.08);
+    }
+    .label{ font-size:12px; color:var(--muted2); margin:0; }
+    .value{ font-size:13px; color:var(--text); margin:2px 0 0 0; word-break:break-word; }
+    a{ color:inherit; }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.08);
+      color:var(--text);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background:rgba(255,255,255,0.10); }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, #6d28d9, #4338ca); }
+
+    /* Main content */
+    .main{
+      padding:16px;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding:12px;
+      margin:0;
+      list-style:none;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .nav button{
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-weight:600;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+      font-size:13px;
+    }
+    .nav button:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+    .nav button.active{
+      border:none;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
+    .page{
+      display:none;
+      margin-top:16px;
+      padding:18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .page.active{ display:block; }
+
+    .h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .muted{ color: var(--muted); font-size:13.5px; line-height:1.6; }
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media(min-width:720px){
+      .kpi{ grid-template-columns: repeat(3, 1fr); }
+    }
+    .kpi .box{
+      padding:14px;
+      border-radius:16px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .kpi .num{ font-size:18px; font-weight:700; margin:0; }
+    .kpi .cap{ font-size:12px; color:var(--muted2); margin:6px 0 0 0; }
+
+    .list{
+      margin:12px 0 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.75;
+    }
+
+    .two{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media(min-width:900px){
+      .two{ grid-template-columns: 1.2fr 0.8fr; }
+    }
+
+    .skillgrid{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+    .skill{
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .skillhead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .skillname{ margin:0; font-weight:600; font-size:13.5px; color:var(--text); }
+    .skillpct{ margin:0; font-size:12px; color:var(--muted2); }
+    .bar{
+      margin-top:10px;
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.10);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.10);
+    }
+    .fill{
+      height:100%;
+      width: var(--w);
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media(min-width:760px){
+      .projects{ grid-template-columns: 1fr 1fr; }
+    }
+    .proj{
+      padding:14px;
+      border-radius:16px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .proj:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.08); }
+    .proj h4{ margin:0; font-size:14.5px; }
+    .proj p{ margin:8px 0 0 0; font-size:13px; color:var(--muted); line-height:1.55; }
+    .proj .tags{ margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; }
+    .tag{
+      font-size:11.5px;
+      padding:5px 9px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+    }
+    .proj a{
+      display:inline-block;
+      margin-top:12px;
+      font-size:12.5px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: underline;
+      font-weight:600;
+    }
+
+    .footer{
+      margin-top:14px;
+      color: var(--muted2);
+      font-size:12px;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
-<main>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> Portfolio</div>
+      <div class="brand">Deployed on Netlify</div>
+    </div>
 
-  <div class="top">
+    <div class="grid">
 
-    <!-- SIDEBAR -->
-    <aside class="card">
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <!-- Put Divya.jpeg in the SAME folder as index.html -->
-          <img src="./Divya.jpeg" alt="Divya Shree D G">
-        </figure>
+      <!-- Sidebar -->
+      <aside class="card sidebar">
+        <div class="profile">
+          <div class="avatar">
+            <img src="./Divya.jpeg" alt="Divya Shree D G">
+          </div>
+          <div>
+            <h1 class="name">Divya Shree D G</h1>
+            <p class="role">Data Analyst • AI & ML</p>
 
-        <div class="info-content">
-          <h1 class="name" title="Divya Shree D G">Divya Shree D G</h1>
-          <p class="title">Data Analyst | AI & ML</p>
+            <div class="badges">
+              <span class="badge">Python</span>
+              <span class="badge">Power BI</span>
+              <span class="badge">SQL</span>
+              <span class="badge">Machine Learning</span>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <ul class="contacts-list">
-        <li><strong>Email:</strong> <a href="mailto:divyashreedg03@gmail.com">divyashreedg03@gmail.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+917899843367">+91 7899843367</a></li>
-        <li><strong>Location:</strong> Bangalore, Karnataka, India</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/Divya-tom" target="_blank">github.com/Divya-tom</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/divyashreedg" target="_blank">linkedin.com/in/divyashreedg</a></li>
-      </ul>
-    </aside>
+        <div class="divider"></div>
 
-    <!-- MAIN -->
-    <section class="card">
+        <div class="contact">
+          <div class="item">
+            <div>
+              <p class="label">Email</p>
+              <p class="value"><a href="mailto:divyashreedg03@gmail.com">divyashreedg03@gmail.com</a></p>
+            </div>
+          </div>
 
-      <!-- NAV -->
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li><button class="navbar-link active" data-nav="about">About</button></li>
-          <li><button class="navbar-link" data-nav="resume">Resume</button></li>
-          <li><button class="navbar-link" data-nav="portfolio">Portfolio</button></li>
-          <li><button class="navbar-link" data-nav="contact">Contact</button></li>
+          <div class="item">
+            <div>
+              <p class="label">Phone</p>
+              <p class="value"><a href="tel:+917899843367">+91 7899843367</a></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div>
+              <p class="label">Location</p>
+              <p class="value">Bangalore, Karnataka, India</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div>
+              <p class="label">GitHub</p>
+              <p class="value"><a href="https://github.com/Divya-tom" target="_blank">github.com/Divya-tom</a></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div>
+              <p class="label">LinkedIn</p>
+              <p class="value"><a href="https://linkedin.com/in/divyashreedg" target="_blank">linkedin.com/in/divyashreedg</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <!-- Add resume PDF later and update href -->
+          <a class="btn primary" href="#" onclick="alert('Upload your resume PDF to the repo, then link it here!')">Download Resume</a>
+          <a class="btn" href="https://divyadg.netlify.app" target="_blank">Open Live Site</a>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <section class="card main">
+        <ul class="nav">
+          <li><button class="active" data-nav="about">About</button></li>
+          <li><button data-nav="resume">Resume</button></li>
+          <li><button data-nav="projects">Projects</button></li>
+          <li><button data-nav="contact">Contact</button></li>
         </ul>
-      </nav>
 
-      <!-- ABOUT -->
-      <article class="active" data-page="about">
-        <header><h2>About Me</h2></header>
-        <p>
-          Hi, I’m <strong>Divya Shree D G</strong>, a Data Analyst and AI & ML undergraduate with hands-on experience in
-          Python, data analysis, EDA, Power BI, and machine learning.
-        </p>
-        <p>
-          I enjoy transforming raw data into meaningful insights and dashboards. I’m actively seeking opportunities
-          where I can apply analytics skills to solve real-world business problems.
-        </p>
-      </article>
+        <!-- About -->
+        <div class="page active" data-page="about">
+          <h2 class="h2">About</h2>
+          <p class="muted">
+            I’m <strong>Divya Shree D G</strong>, a Data Analyst and AI & ML undergraduate with hands-on experience in
+            Python, data analysis, EDA, Power BI, and machine learning. I enjoy turning data into meaningful insights and
+            dashboards, and I’m seeking entry-level opportunities where I can support business decisions with analytics.
+          </p>
 
-      <!-- RESUME -->
-      <article data-page="resume">
-        <header><h2>Resume</h2></header>
+          <div class="kpi">
+            <div class="box">
+              <p class="num">4+</p>
+              <p class="cap">Internship Experiences</p>
+            </div>
+            <div class="box">
+              <p class="num">3+</p>
+              <p class="cap">Analytics / ML Projects</p>
+            </div>
+            <div class="box">
+              <p class="num">Power BI</p>
+              <p class="cap">Dashboard & KPI Reporting</p>
+            </div>
+          </div>
 
-        <h3>Education</h3>
-        <ul>
-          <li><strong>B.E. – AI & ML</strong> (2021–2025) — Vivekananda Institute of Technology, Bangalore — <strong>CGPA:</strong> 7.28</li>
-          <li><strong>Pre-University</strong> (2019–2021) — Vijaya Composite PU College — <strong>82.12%</strong></li>
-          <li><strong>SSLC</strong> (2019) — Manasa Vidya Kendra — <strong>88.96%</strong></li>
-        </ul>
+          <div class="two">
+            <div class="card" style="box-shadow:none; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); padding:14px;">
+              <h3 style="margin:0 0 6px 0;">What I can do</h3>
+              <ul class="list">
+                <li>Clean data, perform EDA, and build insights</li>
+                <li>Create dashboards & KPIs in Power BI</li>
+                <li>Build ML models and evaluate performance</li>
+                <li>Communicate results clearly with visuals</li>
+              </ul>
+            </div>
 
-        <h3>Experience / Internships</h3>
-        <ul>
-          <li><strong>Tech Fortune Technologies</strong> — Machine Learning Intern (Oct 2023 – Nov 2023)</li>
-          <li><strong>Smart Learn Ed.Tech</strong> — Data Science & Data Analysis Intern (Jul 2024 – Aug 2024)</li>
-          <li><strong>Rooman Technologies (PMKVY)</strong> — AI/ML Engineer Trainee (Sep 2024 – May 2025)</li>
-          <li><strong>Dr. Reddy’s Foundation</strong> — Data Science Intern (Jun 2025 – Sep 2025)</li>
-        </ul>
+            <div class="card" style="box-shadow:none; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); padding:14px;">
+              <h3 style="margin:0 0 6px 0;">Tools</h3>
+              <div class="chips">
+                <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span>
+                <span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Tableau</span>
+                <span class="chip">AWS</span><span class="chip">GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <h3>Skills</h3>
-        <ul>
-          <li>Python (80%), Data Analysis & EDA (80%), Machine Learning (75%)</li>
-          <li>Power BI (70%), SQL (70%), Tableau (60%)</li>
-          <li>AWS (60%), HTML & CSS (55%)</li>
-        </ul>
-      </article>
+        <!-- Resume -->
+        <div class="page" data-page="resume">
+          <h2 class="h2">Resume</h2>
 
-      <!-- PORTFOLIO -->
-      <article data-page="portfolio">
-        <header><h2>Projects</h2></header>
+          <h3 style="margin:10px 0 8px 0;">Education</h3>
+          <ul class="list" style="margin-top:6px;">
+            <li><strong>B.E. – AI & ML</strong> (2021–2025) — Vivekananda Institute of Technology, Bangalore — <strong>CGPA:</strong> 7.28</li>
+            <li><strong>PU</strong> (2019–2021) — Vijaya Composite PU College — <strong>82.12%</strong></li>
+            <li><strong>SSLC</strong> (2019) — Manasa Vidya Kendra — <strong>88.96%</strong></li>
+          </ul>
 
-        <ul class="project-list">
-          <li class="project-item">
-            <h3 class="project-title">Food Sales Data Analysis & Prediction</h3>
-            <p class="project-category">Machine Learning • Python • Pandas</p>
-          </li>
+          <h3 style="margin:14px 0 8px 0;">Experience / Internships</h3>
+          <ul class="list" style="margin-top:6px;">
+            <li><strong>Tech Fortune Technologies</strong> — Machine Learning Intern (Oct 2023 – Nov 2023)</li>
+            <li><strong>Smart Learn Ed.Tech</strong> — Data Science & Data Analysis Intern (Jul 2024 – Aug 2024)</li>
+            <li><strong>Rooman Technologies (PMKVY)</strong> — AI/ML Engineer Trainee (Sep 2024 – May 2025)</li>
+            <li><strong>Dr. Reddy’s Foundation</strong> — Data Science Intern (Jun 2025 – Sep 2025)</li>
+          </ul>
 
-          <li class="project-item">
-            <h3 class="project-title">Real-Time Attendance using Face Recognition</h3>
-            <p class="project-category">Computer Vision • OpenCV • KNN</p>
-          </li>
+          <h3 style="margin:14px 0 8px 0;">Skills</h3>
+          <div class="skillgrid">
+            <div class="skill" style="--w:80%"><div class="skillhead"><p class="skillname">Python</p><p class="skillpct">80%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:80%"><div class="skillhead"><p class="skillname">Data Analysis & EDA</p><p class="skillpct">80%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:75%"><div class="skillhead"><p class="skillname">Machine Learning</p><p class="skillpct">75%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:70%"><div class="skillhead"><p class="skillname">Power BI</p><p class="skillpct">70%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:70%"><div class="skillhead"><p class="skillname">SQL</p><p class="skillpct">70%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:60%"><div class="skillhead"><p class="skillname">AWS</p><p class="skillpct">60%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:60%"><div class="skillhead"><p class="skillname">Tableau</p><p class="skillpct">60%</p></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill" style="--w:55%"><div class="skillhead"><p class="skillname">HTML & CSS</p><p class="skillpct">55%</p></div><div class="bar"><div class="fill"></div></div></div>
+          </div>
+        </div>
 
-          <li class="project-item">
-            <h3 class="project-title">Global Superstore Dashboard</h3>
-            <p class="project-category">Power BI • KPI Dashboard</p>
-          </li>
+        <!-- Projects -->
+        <div class="page" data-page="projects">
+          <h2 class="h2">Projects</h2>
+          <p class="muted">Add GitHub links later for each project (recommended).</p>
 
-          <li class="project-item">
-            <h3 class="project-title">AWS Deployment Automation</h3>
-            <p class="project-category">AWS • Deployment</p>
-          </li>
-        </ul>
-      </article>
+          <div class="projects">
+            <div class="proj">
+              <h4>Food Sales Data Analysis & Prediction</h4>
+              <p>Analyzed sales trends, performed EDA, and built a prediction model for demand insights.</p>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span>
+              </div>
+              <a href="#" target="_blank">View on GitHub</a>
+            </div>
 
-      <!-- CONTACT -->
-      <article data-page="contact">
-        <header><h2>Contact</h2></header>
-        <p><strong>Email:</strong> <a href="mailto:divyashreedg03@gmail.com">divyashreedg03@gmail.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+917899843367">+91 7899843367</a></p>
-        <p><strong>Location:</strong> Bangalore, India</p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/Divya-tom" target="_blank">github.com/Divya-tom</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/divyashreedg" target="_blank">linkedin.com/in/divyashreedg</a></p>
-      </article>
+            <div class="proj">
+              <h4>Real-Time Attendance using Face Recognition</h4>
+              <p>Implemented face recognition-based attendance using computer vision techniques.</p>
+              <div class="tags">
+                <span class="tag">OpenCV</span><span class="tag">KNN</span><span class="tag">Python</span>
+              </div>
+              <a href="https://github.com/Divya-tom/Real-Time-Attendance-Tracking-Facial-Recognition-System" target="_blank">View on GitHub</a>
+            </div>
 
-    </section>
+            <div class="proj">
+              <h4>Global Superstore Dashboard</h4>
+              <p>Created an interactive Power BI dashboard for KPIs, sales performance, and regional insights.</p>
+              <div class="tags">
+                <span class="tag">Power BI</span><span class="tag">Dashboard</span><span class="tag">KPIs</span>
+              </div>
+              <a href="#" target="_blank">View Dashboard</a>
+            </div>
+
+            <div class="proj">
+              <h4>AWS Deployment Automation</h4>
+              <p>Explored cloud deployment basics and automation workflow on AWS.</p>
+              <div class="tags">
+                <span class="tag">AWS</span><span class="tag">Cloud</span><span class="tag">Deployment</span>
+              </div>
+              <a href="#" target="_blank">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="page" data-page="contact">
+          <h2 class="h2">Contact</h2>
+          <p class="muted">Feel free to reach out for internship or entry-level roles.</p>
+
+          <div class="two">
+            <div class="card" style="box-shadow:none; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); padding:14px;">
+              <ul class="list" style="margin-top:6px;">
+                <li><strong>Email:</strong> <a href="mailto:divyashreedg03@gmail.com">divyashreedg03@gmail.com</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+917899843367">+91 7899843367</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/Divya-tom" target="_blank">github.com/Divya-tom</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/divyashreedg" target="_blank">linkedin.com/in/divyashreedg</a></li>
+              </ul>
+            </div>
+
+            <div class="card" style="box-shadow:none; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); padding:14px;">
+              <h3 style="margin:0 0 8px 0;">Quick Message</h3>
+              <p class="muted" style="margin-top:0;">
+                You can email me with subject: <strong>“Opportunity – Data Analyst”</strong>
+              </p>
+              <a class="btn primary" href="mailto:divyashreedg03@gmail.com?subject=Opportunity%20-%20Data%20Analyst&body=Hello%20Divya,%0A%0AWe%20would%20like%20to%20connect%20regarding..." >
+                Email Me
+              </a>
+            </div>
+          </div>
+
+          <div class="footer">© <span id="y"></span> Divya Shree D G • Built with HTML/CSS • Hosted on Netlify</div>
+        </div>
+
+      </section>
+    </div>
   </div>
 
-</main>
-
-<script>
-  // Tab navigation logic (fixes Resume not opening)
-  const navButtons = document.querySelectorAll("[data-nav]");
-  const pages = document.querySelectorAll("[data-page]");
-
-  navButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const target = btn.getAttribute("data-nav");
-
-      navButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      pages.forEach(p => p.classList.remove("active"));
-      const page = document.querySelector(`[data-page="${target}"]`);
-      if (page) page.classList.add("active");
+  <script>
+    // Tab navigation
+    const btns = document.querySelectorAll("[data-nav]");
+    const pages = document.querySelectorAll("[data-page]");
+    btns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-nav");
+        btns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        pages.forEach(p => p.classList.remove("active"));
+        document.querySelector(`[data-page="${target}"]`).classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     });
-  });
-</script>
 
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
